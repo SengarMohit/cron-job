@@ -32,7 +32,7 @@ public class CronParser implements  Parser{
     }
 
     @Override
-    public boolean IsValid(String str) throws Exception
+    public boolean isValid(String str) throws Exception
     {
         String[] newStr = str.split("\\s+");
 
@@ -43,11 +43,11 @@ public class CronParser implements  Parser{
     }
 
     @Override
-    public List<String> Parse(String str) throws  Exception {
+    public List<String> parse(String str) throws  Exception {
 
         List<String> list = new ArrayList<>();
 
-        if (IsValid(str)  != true)
+        if (isValid(str)  != true)
             return list;
 
         System.out.println("Parsing the statement " + str );
@@ -58,6 +58,7 @@ public class CronParser implements  Parser{
 //        }
 
         String value = getMinuteString(newStr[0]);
+
         list.add(minute + "  " +  value);
         
         value = getHourString(newStr[1]);
@@ -80,13 +81,10 @@ public class CronParser implements  Parser{
             value = newStr[6];
             list.add(command + " " +value);
         }
-        else
-        {
+        else {
             value = newStr[5];
-            list.add(command + " " +value);
+            list.add(command + " " + value);
         }
-
-
 
         return list;
     }
@@ -162,7 +160,7 @@ public class CronParser implements  Parser{
             buffer.append(str);
         }
 
-        return buffer.toString();
+        return buffer.toString().trim();
     }
 
     private String multipleValues(String str)

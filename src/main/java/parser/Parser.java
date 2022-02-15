@@ -4,7 +4,7 @@ import java.util.List;
 
 public interface Parser {
 
-    public List<String> Parse(String str)  throws  Exception;
+    public List<String> parse(String str)  throws  Exception;
 
-    public boolean IsValid(String str) throws Exception;
+    public boolean isValid(String str) throws Exception;
 }
